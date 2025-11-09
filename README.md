@@ -1,7 +1,13 @@
-# Tauri + Solid
+# Tauri + Pota
 
-This template should help get you started developing with Tauri and Solid in Vite.
+This is a WIP app to help maintain and config a hyprland setup using the caelestia dots on a WIP ArchLinux spin named Matcha Linux.
 
-## Recommended IDE Setup
+# Development
 
-- [VS Code](https://code.visualstudio.com/) + [Tauri](https://marketplace.visualstudio.com/items?itemName=tauri-apps.tauri-vscode) + [rust-analyzer](https://marketplace.visualstudio.com/items?itemName=rust-lang.rust-analyzer)
+You can run using `npm run tauri dev`
+
+# Building
+
+You can build with `npm run tauri build`
+
+This will build an appimage in src-tauri/target/release/bundle/appimage

@@ -1,0 +1,15 @@
+.cards {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 16px;
+  row-gap: 16px;
+  padding: 1%;
+  justify-content: safe center;
+  /* margin-top: 8%; */
+}
+
+.grad {
+  background: linear-gradient(to top, var(--matcha), var(--milk));
+  background-clip: text;
+  color: transparent;
+}

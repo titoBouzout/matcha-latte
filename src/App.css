@@ -1,0 +1,200 @@
+.logo.vite:hover {
+  filter: drop-shadow(0 0 2em #747bff);
+}
+
+.logo.solid:hover {
+  filter: drop-shadow(0 0 2em #2f5d90);
+}
+:root {
+  font-family: Inter, Avenir, Helvetica, Arial, sans-serif;
+  font-size: 16px;
+  line-height: 24px;
+  font-weight: 400;
+
+  color: #0f0f0f;
+  background-color: rgba(246, 246, 246, 0.9);
+
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  -webkit-text-size-adjust: 100%;
+
+  --alpha: 0.75;
+  --matcha: rgb(155, 182, 116);
+  --matcha-alpha: rgb(155, 182, 116, var(--alpha));
+  --milk: rgb(211, 211, 211);
+  --milk-alpha: rgb(211, 211, 211, var(--alpha));
+  --border-color: rgba(0, 0, 0, 0.1);
+}
+
+.container {
+  margin: 0;
+  padding-top: 2vh;
+  display: flex;
+  flex-direction: column;
+  /* justify-content: safe center; */
+  text-align: center;
+  flex: 1;
+}
+
+.logo {
+  height: 6em;
+  padding: 1.5em;
+  will-change: filter;
+  transition: 0.75s;
+}
+
+.logo.tauri:hover {
+  filter: drop-shadow(0 0 2em #24c8db);
+}
+
+.row {
+  display: flex;
+  justify-content: safe center;
+}
+
+a {
+  font-weight: 500;
+  color: #646cff;
+  text-decoration: inherit;
+  height: fit-content;
+}
+
+a:hover {
+  color: #535bf2;
+}
+
+h1 {
+  text-align: center;
+}
+
+input:not([type="color"]),
+button {
+  border-radius: 8px;
+  border: 1px solid rgba(255, 255, 255, 0.05);
+  padding: 0.6em 1.2em;
+  font-size: 1em;
+  font-weight: 500;
+  font-family: inherit;
+  color: #0f0f0f;
+  background-color: #ffffff;
+  transition: border-color 0.25s;
+  box-shadow: 0 2px 2px rgba(0, 0, 0, 0.2);
+}
+
+button {
+  cursor: pointer;
+}
+
+button:hover {
+  border-color: #396cd8;
+}
+button:active {
+  border-color: #396cd8;
+  background-color: #e8e8e8;
+}
+
+input,
+button {
+  outline: none;
+}
+
+#greet-input {
+  margin-right: 5px;
+}
+
+nav {
+  position: sticky;
+  top: 0;
+  display: flex;
+  gap: 8px;
+  backdrop-filter: blur(6px);
+  -webkit-backdrop-filter: blur(6px);
+  /* background: rgba(255, 255, 255, 0.1); */
+  padding: 0 8px;
+  border-radius: 10px;
+  box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+#tooltip {
+  position: absolute;
+  overflow: auto;
+  background-color: rgba(0, 0, 0, 0.8);
+  -webkit-backdrop-filter: blur(5px);
+  backdrop-filter: blur(5px);
+  padding: 8px;
+  border-radius: 4px;
+  border: 1px solid rgba(255, 255, 255, 0.05);
+  pointer-events: none;
+  z-index: 10;
+}
+
+.badge {
+  position: absolute;
+  padding: 0 4px;
+  border-radius: 4px;
+  font-weight: bold;
+  font-size: 0.75em;
+  pointer-events: none;
+}
+
+html,
+body,
+#root,
+.app {
+  height: 100%;
+}
+
+html,
+body,
+#root {
+  overflow: hidden;
+}
+
+.app {
+  display: flex;
+  flex-direction: column;
+  overflow: auto;
+  position: relative;
+}
+
+.app * {
+  box-sizing: border-box;
+}
+
+nav a:has(svg) {
+  line-height: 0px;
+}
+
+.centered {
+  display: flex;
+  justify-content: safe center;
+  align-items: safe center;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    color: var(--milk);
+    background-color: rgba(13, 15, 8, 0.9);
+    --border-color: rgba(255, 255, 255, 0.1);
+  }
+
+  a:hover {
+    color: #24c8db;
+  }
+
+  input:not([type="color"]),
+  button {
+    color: #ffffff;
+    background-color: #0f0f0f98;
+  }
+  input[type="color"] {
+    all: unset;
+    width: 32px;
+    height: 32px;
+  }
+  button:active {
+    background-color: #0f0f0f69;
+  }
+}

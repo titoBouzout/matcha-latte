@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Uploaded to: SVG Repo, www.svgrepo.com, Generator: SVG Repo Mixer Tools -->
+
+<svg
+   width="800"
+   height="800"
+   viewBox="0 0 24 24"
+   fill="none"
+   version="1.1"
+   id="svg3"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:svg="http://www.w3.org/2000/svg">
+  <defs
+     id="defs3" />
+  <path
+     d="M 4,7 H 7 M 20,7 H 11"
+     stroke="currentColor"
+     stroke-width="1.5"
+     stroke-linecap="round"
+     id="path1" />
+  <path
+     d="M 20,17 H 17 M 4,17 h 9"
+     stroke="currentColor"
+     stroke-width="1.5"
+     stroke-linecap="round"
+     id="path2" />
+  <path
+     d="M 4,12 H 7 20"
+     stroke="currentColor"
+     stroke-width="1.5"
+     stroke-linecap="round"
+     id="path3" />
+</svg>

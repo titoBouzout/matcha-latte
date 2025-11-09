@@ -1,0 +1,129 @@
+.Tabs {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+}
+
+.Tabs .tablist {
+  display: flex;
+  width: 100%;
+  padding-top: 10px;
+  user-select: none;
+}
+
+.Tabs .tablist .italic {
+  font-style: italic;
+}
+
+.Tabs .tablist .start,
+.Tabs .tablist .end {
+  border-bottom: 1px solid var(--border-color);
+}
+.Tabs .tablist .start {
+  width: 10px;
+  padding: 0;
+}
+.Tabs .tablist .end {
+  flex: 1;
+}
+
+.Tabs .tablist button {
+  all: unset;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  outline: revert;
+  color: var(--text);
+  padding: 5px 14px;
+  border-top-left-radius: 6px;
+  border-top-right-radius: 6px;
+  border-bottom: 1px solid var(--border-color);
+  cursor: pointer;
+  background-color: transparent;
+  box-shadow: none;
+}
+
+.Tabs .tablist button[selected] {
+  border: 1px solid var(--border-color);
+  border-bottom: none;
+}
+
+.Tabs .tablist svg {
+  color: var(--text-light);
+  width: 20px;
+  height: 20px;
+}
+
+.Tabs .tablist[expanded] svg {
+  margin-right: 4px;
+}
+
+.Tabs .panel {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  overflow-y: auto;
+  padding: 10px;
+  border-top: none;
+}
+
+.Tabs .panel .content {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+}
+
+.Tabs .panel .content button {
+  width: fit-content;
+}
+
+.Tabs.vertical {
+  flex-direction: row;
+}
+.Tabs.vertical > .tablist {
+  flex-direction: column;
+  width: fit-content;
+}
+.Tabs.vertical > .tablist .start,
+.Tabs.vertical > .tablist .end {
+  border-bottom: none;
+  border-right: 1px solid var(--border-color);
+}
+.Tabs.vertical > .tablist .start {
+  width: calc(100% - 1px);
+  height: 10px;
+}
+.Tabs.vertical > .tablist .end {
+  flex-grow: 1;
+}
+.Tabs.vertical > .tablist button {
+  all: unset;
+  display: flex;
+  align-items: center;
+  outline: revert;
+  color: var(--text);
+  padding: 14px 5px;
+  border-top-left-radius: 6px;
+  border-bottom-left-radius: 6px;
+  border-bottom: none;
+  border-right: 1px solid var(--border-color);
+  cursor: pointer;
+  background-color: transparent;
+  box-shadow: none;
+}
+
+.Tabs.vertical > .tablist button[selected] {
+  border: 1px solid var(--border-color);
+  border-right: none;
+}
+
+.fakeChat {
+  flex: 1;
+  padding: 4px;
+}
+
+.container {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+}

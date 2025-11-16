@@ -1,26 +1,26 @@
 .settings {
-  display: flex;
-  flex-direction: column;
-  justify-content: space between;
-  gap: 8px;
-  height: 87vh;
-  overflow: auto;
+	display: flex;
+	flex-direction: column;
+	justify-content: space between;
+	gap: 8px;
+	height: 87vh;
+	overflow: auto;
 }
 
 label {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  margin: 0 5%;
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	margin: 0 5%;
 }
 
 .sticky {
-  position: sticky;
-  top: 0;
-  border-radius: 8px;
+	position: sticky;
+	top: 0;
+	border-radius: 8px;
 }
 
 .stuck {
-  -webkit-backdrop-filter: blur(5px);
-  backdrop-filter: blur(5px);
+	-webkit-backdrop-filter: blur(5px);
+	backdrop-filter: blur(5px);
 }

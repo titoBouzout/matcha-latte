@@ -22,7 +22,7 @@ export default function useFuzzySearchList({
 						score: Number.POSITIVE_INFINITY,
 						matches: [],
 					}),
-			  )
+				)
 	})
 
 	return searchResults

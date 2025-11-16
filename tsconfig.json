@@ -1,35 +1,35 @@
 {
-  "compilerOptions": {
-    "baseUrl": ".",
-    "outDir": "./dist",
+	"compilerOptions": {
+		"baseUrl": ".",
+		"outDir": "./dist",
 
-    "allowJs": true,
-    "checkJs": true,
-    "strict": false,
-    "noImplicitAny": false,
+		"allowJs": true,
+		"checkJs": true,
+		"strict": false,
+		"noImplicitAny": false,
 
-    "module": "NodeNext",
-    "target": "ESNext",
-    "lib": ["ESNext", "DOM", "DOM.Iterable"],
-    "moduleResolution": "bundler",
-    "allowSyntheticDefaultImports": true,
-    "resolveJsonModule": true,
-    "esModuleInterop": true,
+		"module": "NodeNext",
+		"target": "ESNext",
+		"lib": ["ESNext", "DOM", "DOM.Iterable"],
+		"moduleResolution": "bundler",
+		"allowSyntheticDefaultImports": true,
+		"resolveJsonModule": true,
+		"esModuleInterop": true,
 
-    "jsx": "preserve",
-    "jsxImportSource": "pota",
+		"jsx": "preserve",
+		"jsxImportSource": "pota",
 
-    "sourceMap": true,
-    "noEmit": true,
-    "isolatedModules": true,
+		"sourceMap": true,
+		"noEmit": true,
+		"isolatedModules": true,
 
-    "types": [
-      "pota",
-      "@tauri-apps",
-      "@nozbe/microfuzz",
-      "vite/client",
-      "./src/types.d.ts"
-    ]
-  },
-  "exclude": ["dist", "node_modules"]
+		"types": [
+			"pota",
+			"@tauri-apps",
+			"@nozbe/microfuzz",
+			"vite/client",
+			"./src/types.d.ts"
+		]
+	},
+	"exclude": ["dist", "node_modules"]
 }

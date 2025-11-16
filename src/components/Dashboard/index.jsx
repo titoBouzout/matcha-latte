@@ -1,6 +1,5 @@
-import { A } from 'pota/components'
+import { A, Suspense } from 'pota/components'
 import Card from '../Card'
-import { signal } from 'pota'
 import { Command } from '@tauri-apps/plugin-shell'
 import Gear1 from '../Icons/Gear'
 import Monitor from '../Icons/Monitor'
@@ -8,20 +7,23 @@ import styles from './index.module.css'
 import Todos from './Todos'
 
 export default function Dashboard() {
-	const [user, setUser] = signal('Guest')
-	;(async function getUser() {
+	async function getUser() {
 		const r = await Command.create('exec-sh', [
 			'-c',
 			'echo $USER@$HOSTNAME',
 		]).execute()
-		setUser(r.stdout.trim())
-	})()
+
+		return r.stdout.trim()
+	}
+
 	return (
 		<div>
 			<h1>
 				Welcome to <span class={styles.grad}>Matcha Linux</span>
 			</h1>
-			<span>Hello, {user}!</span>
+			<span>
+				Hello, <Suspense fallback="Guest">{getUser}</Suspense>!
+			</span>
 
 			<div class={styles.cards}>
 				<A href="/maintenance">

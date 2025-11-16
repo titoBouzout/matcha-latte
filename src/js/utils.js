@@ -7,12 +7,15 @@ export function camelCaseToLabel(str) {
 export async function rateLimited(name, delay, fn) {
 	const lastCallKey = `lastCall_${name}`
 	const lastValueKey = `lastValue_${name}`
-	const lastCallTime = localStorage.getItem(lastCallKey)
+	const lastCallTime = +localStorage.getItem(lastCallKey)
 	const now = Date.now()
 
 	if (!lastCallTime || now - lastCallTime > delay) {
 		const result = await fn()
-		localStorage.setItem(lastCallKey, now)
+		localStorage.setItem(
+			lastCallKey,
+			/** @type {string} */ (/** @type {unknown} */ (now)),
+		)
 		localStorage.setItem(
 			lastValueKey,
 			typeof result === 'object' ? JSON.stringify(result) : result,
@@ -25,10 +28,11 @@ export async function rateLimited(name, delay, fn) {
 		)
 
 		let lastValue = localStorage.getItem(lastValueKey)
+		let value
 		try {
-			var value = JSON.parse(lastValue)
+			value = JSON.parse(lastValue)
 		} catch (error) {
-			var value = lastValue
+			value = lastValue
 		}
 		// console.log(value);
 		return value

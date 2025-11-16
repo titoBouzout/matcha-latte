@@ -1,6 +1,7 @@
 import { Command } from '@tauri-apps/plugin-shell'
 import Card from '../Card'
 import styles from '../Dashboard/index.module.css'
+import { For } from 'pota/components'
 
 export default function Maintenance() {
 	async function runInNewTerm(cmd, envVars = {}) {
@@ -14,7 +15,13 @@ export default function Maintenance() {
 		Command.create('foot', args).execute()
 	}
 
-	const commands = [
+	/**
+	 * @type {{
+	 * 	label: string
+	 * 	cmd: string
+	 * 	env?: Record<PropertyKey, string>
+	 * }[]}
+	 */ const commands = [
 		{ label: 'Update', cmd: 'ua-update-all' },
 		{ label: 'Clean pacman cache', cmd: 'sudo pacman -Sc' },
 		{ label: 'Clean yay cache', cmd: 'yay -Sc' },

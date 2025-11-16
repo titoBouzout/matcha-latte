@@ -12,7 +12,7 @@ import ChatIcon from '../assets/svg/chat-bubble.svg'
 import HamburgerIcon from '../assets/svg/hamburger.svg'
 
 import tabStyles from './Tabs/Tabs.module.css'
-import { Dynamic, For } from 'pota/components'
+import { Dynamic } from 'pota/components'
 
 export default function TabTest() {
 	const [expanded, _, updateExpanded] = signal(true)
@@ -65,6 +65,7 @@ export default function TabTest() {
 						role="tablist"
 						aria-label="Vertical Tabs Example"
 						class={tabStyles.tablist}
+						/** @ts-expect-error custom attribute */
 						expanded={expanded}
 					>
 						<FoldButton />

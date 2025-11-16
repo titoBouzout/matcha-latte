@@ -5,9 +5,11 @@ let idCounter = 0
 
 /**
  * Context wrapper for tabs
+ *
  * @module Tabs/Tabs
  * @param {object} props
- * @param {number} props.defaultSelectedIndex Which tab index to select by default
+ * @param {number} [props.defaultSelectedIndex] Which tab index to
+ *   select by default
  * @param {Children} [props.children]
  * @returns {Children}
  * @url https://pota.quack.uy/Components/Tabs

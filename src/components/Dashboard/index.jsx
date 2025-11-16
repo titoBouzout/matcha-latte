@@ -5,7 +5,6 @@ import { Command } from '@tauri-apps/plugin-shell'
 import Gear1 from '../Icons/Gear'
 import Monitor from '../Icons/Monitor'
 import styles from './index.module.css'
-import Updates from '../Updates'
 import Todos from './Todos'
 
 export default function Dashboard() {

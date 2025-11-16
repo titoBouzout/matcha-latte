@@ -1,4 +1,5 @@
 import { location } from 'pota/use/location'
+
 export default function FourZeroFour() {
 	return (
 		<div class="centered" style={'flex-direction: column; flex: 1;'}>

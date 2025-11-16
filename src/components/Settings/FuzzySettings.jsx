@@ -2,10 +2,10 @@ import { For } from 'pota/components'
 import { bind } from 'pota/use/bind'
 import { location } from 'pota/use/location'
 import { camelCaseToLabel } from '../../js/utils'
-import useFuzzySearchList from '../../use/fuzzySeach'
 import styles from './index.module.css'
 import Setting from './Setting'
-import { effect, ready, ref } from 'pota'
+import { effect, ref } from 'pota'
+import useFuzzySearchList from '../../use/fuzzySearch.jsx'
 
 export default function FuzzySettings(props) {
 	const input = bind(location.searchParams?.q || '')
@@ -37,7 +37,7 @@ export default function FuzzySettings(props) {
 	const search = (
 		<label class={styles.sticky} use:ref={searchRef}>
 			Search
-			<input use:bind={input} autoComplete="on" />
+			<input use:bind={input} autocomplete="on" />
 		</label>
 	)
 

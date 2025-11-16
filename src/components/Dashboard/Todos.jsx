@@ -1,5 +1,5 @@
 import Card from '../Card'
-import { effect, signal } from 'pota'
+import { signal } from 'pota'
 import { For } from 'pota/components'
 import Editable from '../Editable'
 

@@ -5,7 +5,7 @@ import { bind } from 'pota/use/bind'
 export default function Editable(props) {
 	const value = bind(props.value())
 	const [editing, setEditing] = signal(false)
-	let inputRef = ref()
+	let inputRef = /** @type SignalFunction<HTMLInputElement> */ (ref())
 
 	function toggle() {
 		const flop = !editing()

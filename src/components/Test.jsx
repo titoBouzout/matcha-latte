@@ -1,5 +1,6 @@
 import { signal, ready } from 'pota'
 import { Command } from '@tauri-apps/plugin-shell'
+
 async function Test() {
 	const [display, setDisplay] = signal('')
 

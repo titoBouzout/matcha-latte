@@ -12,7 +12,7 @@ import HamburgerIcon from '../../assets/svg/hamburger.svg'
 import PaletteIcon from '../../assets/svg/palette.svg'
 
 import tabStyles from '../Tabs/Tabs.module.css'
-import { Dynamic, For } from 'pota/components'
+import { Dynamic } from 'pota/components'
 import Vars from './Vars.jsx'
 import Colors from './Colors.jsx'
 
@@ -66,6 +66,7 @@ export default function Settings() {
 						role="tablist"
 						aria-label="Vertical Tabs Example"
 						class={tabStyles.tablist}
+						/** @ts-expect-error custom attribute */
 						expanded={expanded}
 					>
 						<FoldButton />

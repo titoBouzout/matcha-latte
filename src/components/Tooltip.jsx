@@ -1,49 +1,54 @@
-import { effect, memo, propsPlugin, ref, signal } from 'pota'
+import { memo, propsPlugin, signal } from 'pota'
 
-import { Collapse, Show } from 'pota/components'
+import { Collapse } from 'pota/components'
 
 const [tooltipNode, setTooltipNode] = signal({
 	position: { x: 0, y: 0 },
+	value: undefined,
+	node: undefined,
 })
 
 let outTO
 propsPlugin('use:tooltip', (node, value) => {
 	// if (value().trim() === "") return;
 	// console.log(value);
-	node.addEventListener('mouseover', e => {
-		console.log('mouseover', outTO)
-		clearTimeout(outTO)
+	node.addEventListener(
+		'mouseover',
+		(/** @type {MouseEvent} */ e) => {
+			console.log('mouseover', outTO)
+			clearTimeout(outTO)
 
-		function getWidth() {
-			let { width } = getComputedStyle(
-				document.getElementById('tooltip'),
-			)
-			console.log('getwidth', width)
-			return +width.replace(/[^.\d]/g, '') || 0
-		}
+			function getWidth() {
+				let { width } = getComputedStyle(
+					document.getElementById('tooltip'),
+				)
+				console.log('getwidth', width)
+				return +width.replace(/[^.\d]/g, '') || 0
+			}
 
-		let x = e.clientX
-		let width = getWidth()
-		console.log(width)
-		if (width === 0) {
+			let x = e.clientX
+			let width = getWidth()
+			console.log(width)
+			if (width === 0) {
+				setTooltipNode({
+					node,
+					value,
+					position: { x, y: e.clientY },
+				})
+			}
+
+			if (x + getWidth() > document.body.clientWidth) {
+				console.log('offscreen')
+				x = x - getWidth() - 8
+			}
 			setTooltipNode({
 				node,
 				value,
 				position: { x, y: e.clientY },
 			})
-		}
-
-		if (x + getWidth() > document.body.clientWidth) {
-			console.log('offscreen')
-			x = x - getWidth() - 8
-		}
-		setTooltipNode({
-			node,
-			value,
-			position: { x, y: e.clientY },
-		})
-	})
-	node.addEventListener('mouseout', e => {
+		},
+	)
+	node.addEventListener('mouseout', (/** @type {MouseEvent} */ e) => {
 		console.log('mouseout', outTO)
 		clearTimeout(outTO)
 		outTO = setTimeout(() => {

@@ -8,7 +8,7 @@ import { effect, ref } from 'pota'
 import useFuzzySearchList from '../../use/fuzzySearch.jsx'
 
 export default function FuzzySettings(props) {
-	const input = bind(location.searchParams?.q || '')
+	const input = bind(() => location.searchParams?.q || '')
 
 	const filteredVariables = useFuzzySearchList({
 		list: props.list,
@@ -49,10 +49,6 @@ export default function FuzzySettings(props) {
 			searchRef().classList.remove(styles.stuck)
 		}
 	}
-
-	effect(() => {
-		input(location.searchParams?.q || '')
-	})
 
 	return (
 		<div class={styles.settings} on:scroll={toggleStuck}>

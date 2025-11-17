@@ -3,7 +3,7 @@ import { Show } from 'pota/components'
 import { bind } from 'pota/use/bind'
 
 export default function Editable(props) {
-	const value = bind(props.value())
+	const value = bind(props.value)
 	const [editing, setEditing] = signal(false)
 	let inputRef = /** @type SignalFunction<HTMLInputElement> */ (ref())
 
@@ -22,9 +22,6 @@ export default function Editable(props) {
 		toggle()
 	}
 
-	effect(() => {
-		value(props.value())
-	})
 	return (
 		<div
 			on:click={toggle}

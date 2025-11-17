@@ -5,8 +5,10 @@ export default function RustGreet() {
 	const [name, setName] = signal('')
 
 	async function greet() {
-		// Learn more about Tauri commands at https://tauri.app/develop/calling-rust/
-		return invoke('greet', { name: name() })
+		if (name() != '') {
+			// Learn more about Tauri commands at https://tauri.app/develop/calling-rust/
+			return invoke('greet', { name: name() })
+		}
 	}
 
 	return (

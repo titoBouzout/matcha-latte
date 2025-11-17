@@ -18,8 +18,7 @@ export default function Colors() {
 			'Are you sure you want to reset everything?',
 		)
 		if (!confirmed) return
-		resetSettings()
-		updateTheme()
+		resetSettings().then(updateTheme)
 	}
 
 	return (

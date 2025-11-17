@@ -1,4 +1,4 @@
-import { ready, signal, memo } from 'pota'
+import { ready, memo, writable } from 'pota'
 import Bell1 from './Icons/Bell'
 import { For } from 'pota/components'
 import { Command } from '@tauri-apps/plugin-shell'
@@ -6,8 +6,7 @@ import Badge from './Badge'
 import { rateLimited } from '../js/utils'
 
 export default function Updates() {
-	const [updates, setUpdates] = signal([])
-	async function checkUpdates() {
+	const updates = writable(async function checkUpdates() {
 		const r = await Command.create('exec-sh', [
 			'-c',
 			'checkupdates',
@@ -25,19 +24,20 @@ export default function Updates() {
 			})
 
 		return upd
-	}
+	}, [])
 
 	const updateCount = memo(() => updates().length.toString())
 
 	ready(async () => {
 		try {
-			setUpdates(
-				await rateLimited('updates', 60 * 1000 * 30, checkUpdates),
+			await rateLimited('updates', 60 * 1000 * 30, () =>
+				updates.run(),
 			)
 		} catch (error) {
 			console.error('too lazy to figure this out rn', error)
 		}
 	})
+
 	return (
 		<Badge
 			x="8px"

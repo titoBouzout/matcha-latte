@@ -1,16 +1,16 @@
 import { Command } from '@tauri-apps/plugin-shell'
-import { memo, ready, signal } from 'pota'
+import { writable } from 'pota'
 import { For } from 'pota/components'
 import Badge from './Badge'
 import Chip from './Icons/Chip'
 
 export default function PacNewSave() {
-	const [items, setItems] = signal([])
-	async function checkItems() {
+	const items = writable(async function checkItems() {
 		const r = await Command.create('exec-sh', [
 			'-c',
 			"find /etc -name '*.pacnew' -o -name '*.pacsave'",
 		]).execute()
+
 		const upd = r.stdout
 			.trim()
 			.split('\n')
@@ -18,13 +18,10 @@ export default function PacNewSave() {
 
 		console.log(upd)
 		return upd
-	}
+	}, [])
 
-	const updateCount = memo(() => items().length.toString())
+	const updateCount = () => items().length.toString()
 
-	ready(async () => {
-		setItems(await checkItems())
-	})
 	return (
 		<Badge
 			x="8px"

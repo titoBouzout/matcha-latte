@@ -2,12 +2,11 @@ import { signal } from 'pota'
 import { invoke } from '@tauri-apps/api/core'
 
 export default function RustGreet() {
-	const [greetMsg, setGreetMsg] = signal('')
 	const [name, setName] = signal('')
 
 	async function greet() {
 		// Learn more about Tauri commands at https://tauri.app/develop/calling-rust/
-		setGreetMsg(await invoke('greet', { name: name() }))
+		return invoke('greet', { name: name() })
 	}
 
 	return (
@@ -16,7 +15,6 @@ export default function RustGreet() {
 				class="row"
 				on:submit={e => {
 					e.preventDefault()
-					greet()
 				}}
 			>
 				<input
@@ -27,7 +25,7 @@ export default function RustGreet() {
 				<button type="submit">Greet</button>
 				{/* <button onClick={() => { location.reload() }}>refresh</button> */}
 			</form>
-			<p>{greetMsg}</p>
+			<p>{greet}</p>
 		</>
 	)
 }

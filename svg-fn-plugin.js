@@ -16,7 +16,7 @@ export default function svgFnPlugin() {
 					.trim()
 				return transformWithEsbuild(
 					`
-          export default function(props) { 
+          export default function(props) {
             return (
               ${svgContent}
             )

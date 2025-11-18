@@ -1,23 +1,20 @@
-import {signal, ready } from 'pota';
-import { Command } from '@tauri-apps/plugin-shell';
-async function Test() {
-    const [display, setDisplay] = signal('')
+import { Command } from '@tauri-apps/plugin-shell'
 
-    async function run() {
-        const r = await Command.create('exec-sh', [
-            '-c',
-            "echo 'Hello World!'",
-        ]).execute();
-        console.log(r, r.stdout.trim())
-        setDisplay(r.stdout.trim())
-    }
+function Test() {
+	async function display() {
+		const r = await Command.create('exec-sh', [
+			'-c',
+			"echo 'Hello World!'",
+		]).execute()
+		console.log(r, r.stdout.trim())
+		return r.stdout.trim()
+	}
 
-    ready(run)
-    return (
-        <div>
-            <marquee>testing!</marquee>
-            <p>wtf lol where is it? {display}</p>
-        </div>
-    )
+	return (
+		<div>
+			<marquee>testing!</marquee>
+			<p>wtf lol where is it? {display}</p>
+		</div>
+	)
 }
 export default Test

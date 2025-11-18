@@ -1,12 +1,12 @@
 import { ready, memo, writable } from 'pota'
-import Bell1 from './Icons/Bell'
+import Bell1 from './Icons/Bell.jsx'
 import { For } from 'pota/components'
 import { Command } from '@tauri-apps/plugin-shell'
-import Badge from './Badge'
-import { rateLimited } from '../js/utils'
+import Badge from './Badge.jsx'
+import { rateLimited } from '../js/utils.js'
 
 export default function Updates() {
-	const updates = writable(async function checkUpdates() {
+	async function checkForUpdates() {
 		const r = await Command.create('exec-sh', [
 			'-c',
 			'checkupdates',
@@ -24,19 +24,22 @@ export default function Updates() {
 			})
 
 		return upd
-	}, [])
+	}
 
-	const updateCount = memo(() => updates().length.toString())
-
-	ready(async () => {
+	const updates = writable(async function checkUpdates() {
 		try {
-			await rateLimited('updates', 60 * 1000 * 30, () =>
-				updates.run(),
+			return await rateLimited(
+				'updates',
+				60 * 1000 * 30,
+				checkForUpdates,
 			)
 		} catch (error) {
 			console.error('too lazy to figure this out rn', error)
+			return []
 		}
-	})
+	}, [])
+
+	const updateCount = memo(() => updates().length.toString())
 
 	return (
 		<Badge
@@ -77,18 +80,17 @@ function Update({ data }) {
 		+cur.major > (+prev.major || 0)
 			? 'major'
 			: +cur.minor > (+prev.minor || 0)
-				? 'minor'
-				: +cur.patch > (+prev.patch || 0)
-					? 'patch'
-					: +cur.release?.replace('r', '') >
-						  +prev.release?.replace('r', '')
-						? 'release'
-						: +cur.hash?.replace('g', '') >
-							  +prev.hash?.replace('g', '')
-							? 'hash'
-							: +curPkgBuild > +prevPkgBuild
-								? 'pkgbuild'
-								: 'unknown?'
+			? 'minor'
+			: +cur.patch > (+prev.patch || 0)
+			? 'patch'
+			: +cur.release?.replace('r', '') >
+			  +prev.release?.replace('r', '')
+			? 'release'
+			: +cur.hash?.replace('g', '') > +prev.hash?.replace('g', '')
+			? 'hash'
+			: +curPkgBuild > +prevPkgBuild
+			? 'pkgbuild'
+			: 'unknown?'
 
 	const colors = {
 		major: 'lightred',

@@ -6,7 +6,7 @@ import AppContext from './context/app.js'
 
 function App() {
 	const context = AppContext()
-	console.log(context.theme)
+
 	return (
 		<div class="app">
 			<Nav />

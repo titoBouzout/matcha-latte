@@ -1,10 +1,10 @@
 import { Navigate, Route } from 'pota/components'
-import Settings from './Settings'
-import Test from './Test'
-import RustGreet from './RustGreet'
-import Dashboard from './Dashboard'
-import Maintenance from './Maintenance'
-import FourZeroFour from './404'
+import Settings from './Settings/index.jsx'
+import Test from './Test.jsx'
+import RustGreet from './RustGreet.jsx'
+import Dashboard from './Dashboard/index.jsx'
+import Maintenance from './Maintenance/index.jsx'
+import FourZeroFour from './404.jsx'
 
 export default function Router() {
 	return (

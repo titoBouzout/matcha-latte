@@ -1,6 +1,6 @@
 import { Command } from '@tauri-apps/plugin-shell'
-import useContext from '../../context/app'
-import FuzzySettings from './FuzzySettings'
+import useContext from '../../context/app.js'
+import FuzzySettings from './FuzzySettings.jsx'
 
 export default function Colors() {
 	const { theme, updateTheme } = useContext()

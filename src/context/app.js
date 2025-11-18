@@ -1,5 +1,5 @@
 import { context, signal } from 'pota'
-import { parseVars } from '../js/utils'
+import { parseVars } from '../js/utils.js'
 import { Command } from '@tauri-apps/plugin-shell'
 
 async function getTheme() {

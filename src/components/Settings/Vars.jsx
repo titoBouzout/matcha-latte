@@ -1,10 +1,10 @@
 import { Command } from '@tauri-apps/plugin-shell'
 import { writable } from 'pota'
-import { parseVars } from '../../js/utils'
-import FuzzySettings from './FuzzySettings'
+import { parseVars } from '../../js/utils.js'
+import FuzzySettings from './FuzzySettings.jsx'
 
 export default function Vars() {
-	const variables = writable(async function getVars() {
+	async function getVars() {
 		const r = await Command.create('exec-sh', [
 			'-c',
 			'cat "$HOME/caelestia/hypr/variables.conf"',
@@ -12,7 +12,9 @@ export default function Vars() {
 		const cv = parseVars(r.stdout)
 		console.log(r, cv)
 		return cv
-	})
+	}
+
+	const variables = writable(getVars, [])
 
 	async function resetSettings() {
 		const r = await Command.create('exec-sh', [

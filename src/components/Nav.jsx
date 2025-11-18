@@ -1,9 +1,9 @@
 import { A, Show } from 'pota/components'
 import { location, navigate } from 'pota/use/location'
-import ChevronLeft from './Icons/ChevronLeft'
-import Updates from './Updates'
-import PacNewSave from './PacNewSave'
-import Editable from './Editable'
+import ChevronLeft from './Icons/ChevronLeft.jsx'
+import Updates from './Updates.jsx'
+import PacNewSave from './PacNewSave.jsx'
+import Editable from './Editable.jsx'
 
 export default function Nav() {
 	return (

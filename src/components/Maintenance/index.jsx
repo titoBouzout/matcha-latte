@@ -1,5 +1,5 @@
 import { Command } from '@tauri-apps/plugin-shell'
-import Card from '../Card'
+import Card from '../Card/index.jsx'
 import styles from '../Dashboard/index.module.css'
 import { For } from 'pota/components'
 

@@ -4,6 +4,13 @@ export function camelCaseToLabel(str) {
 	)
 }
 
+/**
+ * @template T
+ * @param {string} name
+ * @param {number} delay
+ * @param {(...args: unknown[]) => T} fn
+ * @returns {Promise<T>}
+ */
 export async function rateLimited(name, delay, fn) {
 	const lastCallKey = `lastCall_${name}`
 	const lastValueKey = `lastValue_${name}`
@@ -18,7 +25,11 @@ export async function rateLimited(name, delay, fn) {
 		)
 		localStorage.setItem(
 			lastValueKey,
-			typeof result === 'object' ? JSON.stringify(result) : result,
+			/** @type {string} */ (
+				/** @type {unknown} */ (
+					typeof result === 'object' ? JSON.stringify(result) : result
+				)
+			),
 		)
 		return result
 	} else {

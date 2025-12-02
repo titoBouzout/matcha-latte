@@ -1,5 +1,6 @@
 import { Command } from '@tauri-apps/plugin-shell'
 import { Match, Switch } from 'pota/components'
+
 import { camelCaseToLabel } from '../../js/utils.js'
 import Highlighter from '../Highlighter.jsx'
 

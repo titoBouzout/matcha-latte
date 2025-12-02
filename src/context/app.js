@@ -1,6 +1,7 @@
 import { context, signal } from 'pota'
-import { parseVars } from '../js/utils.js'
 import { Command } from '@tauri-apps/plugin-shell'
+
+import { parseVars } from '../js/utils.js'
 
 async function getTheme() {
 	const r = await Command.create('exec-sh', [

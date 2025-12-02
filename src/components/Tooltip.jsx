@@ -1,5 +1,4 @@
 import { memo, propsPlugin, signal } from 'pota'
-
 import { Collapse } from 'pota/components'
 
 const [tooltipNode, setTooltipNode] = signal({

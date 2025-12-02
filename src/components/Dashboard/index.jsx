@@ -1,10 +1,12 @@
 import { A, Suspense } from 'pota/components'
-import Card from '../Card/index.jsx'
 import { Command } from '@tauri-apps/plugin-shell'
+
+import Card from '../Card/index.jsx'
 import Gear1 from '../Icons/Gear.jsx'
 import Monitor from '../Icons/Monitor.jsx'
-import styles from './index.module.css'
 import Todos from './Todos.jsx'
+
+import styles from './index.module.css'
 
 export default function Dashboard() {
 	async function getUser() {

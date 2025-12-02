@@ -1,4 +1,6 @@
 import { signal } from 'pota'
+import { Dynamic } from 'pota/components'
+
 import {
 	Tabs,
 	TabLabel,
@@ -6,15 +8,14 @@ import {
 	TabList,
 	TabPanel,
 } from '../Tabs/index.js'
+import Vars from './Vars.jsx'
+import Colors from './Colors.jsx'
 
 import VarIcon from '../../assets/svg/variable.svg'
 import HamburgerIcon from '../../assets/svg/hamburger.svg'
 import PaletteIcon from '../../assets/svg/palette.svg'
 
 import tabStyles from '../Tabs/Tabs.module.css'
-import { Dynamic } from 'pota/components'
-import Vars from './Vars.jsx'
-import Colors from './Colors.jsx'
 
 export default function Settings() {
 	const [expanded, _, updateExpanded] = signal(true)

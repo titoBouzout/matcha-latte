@@ -1,8 +1,10 @@
 import { For, Show } from 'pota/components'
+
 import { TabContext } from './context.jsx'
 
 /**
  * Renders a list of tabs
+ *
  * @module Tabs/List
  * @param {object} props
  * @param {Children} [props.children]

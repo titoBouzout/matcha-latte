@@ -1,4 +1,5 @@
 import { Navigate, Route } from 'pota/components'
+
 import Settings from './Settings/index.jsx'
 import Test from './Test.jsx'
 import RustGreet from './RustGreet.jsx'

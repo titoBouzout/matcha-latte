@@ -1,4 +1,5 @@
 import { Command } from '@tauri-apps/plugin-shell'
+
 import useContext from '../../context/app.js'
 import FuzzySettings from './FuzzySettings.jsx'
 

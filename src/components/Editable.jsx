@@ -1,4 +1,4 @@
-import { effect, ref, signal } from 'pota'
+import { ref, signal } from 'pota'
 import { Show } from 'pota/components'
 import { bind } from 'pota/use/bind'
 

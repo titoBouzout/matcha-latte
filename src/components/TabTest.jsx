@@ -1,4 +1,6 @@
 import { signal } from 'pota'
+import { Dynamic } from 'pota/components'
+
 import {
 	Tabs,
 	TabLabel,
@@ -12,7 +14,6 @@ import ChatIcon from '../assets/svg/chat-bubble.svg'
 import HamburgerIcon from '../assets/svg/hamburger.svg'
 
 import tabStyles from './Tabs/Tabs.module.css'
-import { Dynamic } from 'pota/components'
 
 export default function TabTest() {
 	const [expanded, _, updateExpanded] = signal(true)

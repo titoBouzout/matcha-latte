@@ -1,6 +1,7 @@
-import Card from '../Card/index.jsx'
 import { signal } from 'pota'
 import { For } from 'pota/components'
+
+import Card from '../Card/index.jsx'
 import Editable from '../Editable.jsx'
 
 function Todo(props) {

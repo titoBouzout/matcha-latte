@@ -1,11 +1,13 @@
 import { For } from 'pota/components'
 import { bind } from 'pota/use/bind'
 import { location } from 'pota/use/location'
+import { ref } from 'pota'
+
 import { camelCaseToLabel } from '../../js/utils.js'
-import styles from './index.module.css'
 import Setting from './Setting.jsx'
-import { effect, ref } from 'pota'
 import useFuzzySearchList from '../../use/fuzzySearch.jsx'
+
+import styles from './index.module.css'
 
 export default function FuzzySettings(props) {
 	const input = bind(() => location.searchParams?.q || '')

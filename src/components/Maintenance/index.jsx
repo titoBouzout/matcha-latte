@@ -1,7 +1,9 @@
 import { Command } from '@tauri-apps/plugin-shell'
-import Card from '../Card/index.jsx'
-import styles from '../Dashboard/index.module.css'
 import { For } from 'pota/components'
+
+import Card from '../Card/index.jsx'
+
+import styles from '../Dashboard/index.module.css'
 
 export default function Maintenance() {
 	async function runInNewTerm(cmd, envVars = {}) {

@@ -1,9 +1,11 @@
 import { memo, ready, ref, signal, writable } from 'pota'
 import { Collapse, For } from 'pota/components'
 import { bind } from 'pota/use/bind'
-import styles from '../css/FuzzySelect.module.css'
+
 import useFuzzySearchList from '../use/fuzzySearch.jsx'
 import Highlighter from './Highlighter.jsx'
+
+import styles from '../css/FuzzySelect.module.css'
 
 export default function FuzzySelect(props) {
 	const input = bind('')

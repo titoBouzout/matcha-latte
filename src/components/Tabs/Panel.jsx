@@ -1,8 +1,10 @@
 import { Collapse, Dynamic, For, Show } from 'pota/components'
+
 import { TabContext } from './context.jsx'
 
 /**
  * Renders a tab panel with contents
+ *
  * @module Tabs/Panel
  * @param {object} props
  * @param {Children} [props.children]

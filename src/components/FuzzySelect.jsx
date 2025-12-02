@@ -1,4 +1,4 @@
-import { memo, ready, ref, signal, writable } from 'pota'
+import { memo, ready, ref, signal, derived } from 'pota'
 import { Collapse, For } from 'pota/components'
 import { bind } from 'pota/use/bind'
 
@@ -21,12 +21,12 @@ export default function FuzzySelect(props) {
 		queryText: input,
 	})
 
-	const selected = writable(
+	const selected = derived(
 		() =>
 			props.defaultSelected() ||
 			props.options.list()[0]?.[props.options.key],
 	)
-	const hovering = writable(
+	const hovering = derived(
 		() =>
 			props.options
 				.list()

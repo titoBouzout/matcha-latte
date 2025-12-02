@@ -1,11 +1,12 @@
-import { ready, memo, writable } from 'pota'
-import Bell1 from './Icons/Bell.jsx'
+import { memo, derived } from 'pota'
 import { For } from 'pota/components'
 import { Command } from '@tauri-apps/plugin-shell'
+
+import Bell1 from './Icons/Bell.jsx'
 import Badge from './Badge.jsx'
 import { rateLimited } from '../js/utils.js'
 
-export default function Updates() {
+export default async function Updates() {
 	async function checkForUpdates() {
 		const r = await Command.create('exec-sh', [
 			'-c',
@@ -26,18 +27,14 @@ export default function Updates() {
 		return upd
 	}
 
-	const updates = writable(async function checkUpdates() {
+	const updates = await derived(function checkUpdates() {
 		try {
-			return await rateLimited(
-				'updates',
-				60 * 1000 * 30,
-				checkForUpdates,
-			)
+			return rateLimited('updates', 60 * 1000 * 30, checkForUpdates)
 		} catch (error) {
 			console.error('too lazy to figure this out rn', error)
 			return []
 		}
-	}, [])
+	})
 
 	const updateCount = memo(() => updates().length.toString())
 
@@ -80,17 +77,18 @@ function Update({ data }) {
 		+cur.major > (+prev.major || 0)
 			? 'major'
 			: +cur.minor > (+prev.minor || 0)
-			? 'minor'
-			: +cur.patch > (+prev.patch || 0)
-			? 'patch'
-			: +cur.release?.replace('r', '') >
-			  +prev.release?.replace('r', '')
-			? 'release'
-			: +cur.hash?.replace('g', '') > +prev.hash?.replace('g', '')
-			? 'hash'
-			: +curPkgBuild > +prevPkgBuild
-			? 'pkgbuild'
-			: 'unknown?'
+				? 'minor'
+				: +cur.patch > (+prev.patch || 0)
+					? 'patch'
+					: +cur.release?.replace('r', '') >
+						  +prev.release?.replace('r', '')
+						? 'release'
+						: +cur.hash?.replace('g', '') >
+							  +prev.hash?.replace('g', '')
+							? 'hash'
+							: +curPkgBuild > +prevPkgBuild
+								? 'pkgbuild'
+								: 'unknown?'
 
 	const colors = {
 		major: 'lightred',

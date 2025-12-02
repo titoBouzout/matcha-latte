@@ -1,10 +1,11 @@
 import { Command } from '@tauri-apps/plugin-shell'
-import { writable } from 'pota'
+import { derived } from 'pota'
 import { For } from 'pota/components'
+
 import Badge from './Badge.jsx'
 import Chip from './Icons/Chip.jsx'
 
-export default function PacNewSave() {
+export default async function PacNewSave() {
 	async function checkItems() {
 		const r = await Command.create('exec-sh', [
 			'-c',
@@ -19,7 +20,8 @@ export default function PacNewSave() {
 		console.log(upd)
 		return upd
 	}
-	const items = writable(checkItems, [])
+
+	const items = await derived(checkItems)
 
 	const updateCount = () => items().length.toString()
 
